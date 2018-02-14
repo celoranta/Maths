@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -25,32 +26,33 @@ int main(int argc, const char * argv[]) {
             
             
 
-            //create question
-            AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
-            NSLog(currentQuestion.question);
-    
-            NSLog(@"Please Enter an Answer:");
-            char userInput[255];
-            fgets(userInput,255,stdin);
+            InputHandler *currentInputHandler = [[InputHandler alloc]init];
             
-            // this takes user answer and cleans it up to a nice NSString
-            NSCharacterSet *inputCharacterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-            NSString *userInputConverted = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
-            NSString *userInputTrimmed = [userInputConverted stringByTrimmingCharactersInSet:inputCharacterSet];
+            /*
+             
+             allocate question
+             print question question.question
+             inputHander queryuser
+             
+             */
+            
+            
+            NSString *parsedUserAnswer = [currentInputHandler queryUser];
+            
+            
             
             //check for quit command and break if necessary
-            if([userInputTrimmed isEqualToString:@"quit"]){
+            if([parsedUserAnswer isEqualToString:@"quit"]){
                 gameOn = NO;
             }
             if(gameOn == NO){
                 break;
             }
             
-            //check answer for correct value
-            NSInteger userAnswer = userInputConverted.intValue;
-            
             //feedback to user
-            if(currentQuestion.answer == userAnswer){
+            if(parsedUserAnswer.intValue == currentInputHandler.correctAnswer){
+                
+                
                 NSLog(@"You sexy genius!!");
             }
             else{
