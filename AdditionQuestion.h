@@ -10,13 +10,15 @@
 
 @interface AdditionQuestion : NSObject
 
-@property NSString *question;
-@property NSInteger answer;
+@property (strong, nonatomic) NSString *question;
+@property NSInteger correctAnswer;
 
+@property (strong, nonatomic) NSDate *startTime;
+@property (strong, nonatomic) NSDate *endTime;
+@property (strong, nonatomic) NSString *userAnswer;
 
-
-
-
+- (NSTimeInterval)answerTime;
+- (void)queryUser;
 
 
 
