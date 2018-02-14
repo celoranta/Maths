@@ -9,15 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
 #import "QuestionManager.h"
+#import "ScoreKeeper.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         QuestionManager *gameQuestionManager = [[QuestionManager alloc]init];
+        ScoreKeeper *gameScoreKeeper = [[ScoreKeeper alloc]init];
         
         BOOL gameOn = YES;
 
         while(true){
    
+            gameScoreKeeper.totalRounds++;
+            NSLog(@"Begin Round #%d!",gameScoreKeeper.totalRounds);
             AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
             [gameQuestionManager.questions addObject: currentQuestion];
             
@@ -35,15 +39,21 @@ int main(int argc, const char * argv[]) {
             }
             
             //feedback to user
-            if(parsedUserAnswer.intValue == currentQuestion.correctAnswer){
+            //  BOOL currentRoundResult;
+             if (parsedUserAnswer.intValue == currentQuestion.correctAnswer){
                 
                 
                 NSLog(@"You sexy genius!!");
+                 gameScoreKeeper.wonRounds++;
             }
             else{
                 NSLog(@"Ummm...  ok.  Try again, please.");
+                gameScoreKeeper.lostRounds++;
+                
             }
             NSLog(@"--You took %.2f seconds to complete this round--\n\n\n",[currentQuestion answerTime]);
+            NSLog([gameScoreKeeper scoreBoard]);
+            
        
 
         }

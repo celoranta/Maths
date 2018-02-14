@@ -13,6 +13,7 @@
 - (instancetype) init{
     self = [super init];
     if(self){
+        _result = 0;
         _questions = [[NSMutableArray alloc]init];
         _totalTime = (float)0;
         _meanTime = (float)0;

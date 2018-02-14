@@ -13,6 +13,7 @@
 @property (nonatomic) NSMutableArray *questions;
 @property (nonatomic) float totalTime;
 @property (nonatomic) float meanTime;
+@property (nonatomic) int result;
 
 - (NSString *) timeOutput;
 
