@@ -8,16 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        QuestionManager *gameQuestionManager = [[QuestionManager alloc]init];
         
         BOOL gameOn = YES;
 
         while(true){
    
             AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
-
+            [gameQuestionManager.questions addObject: currentQuestion];
+            
             [currentQuestion queryUser];
             
             NSString *parsedUserAnswer = currentQuestion.userAnswer;

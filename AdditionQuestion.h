@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSDate *startTime;
 @property (strong, nonatomic) NSDate *endTime;
 @property (strong, nonatomic) NSString *userAnswer;
+@property (nonatomic) int roundNumber;
 
 - (NSTimeInterval)answerTime;
 - (void)queryUser;
