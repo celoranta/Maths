@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AdditionQuestion.h"
 
 @interface QuestionManager : NSObject
 
@@ -14,7 +15,12 @@
 @property (nonatomic) float totalTime;
 @property (nonatomic) float meanTime;
 @property (nonatomic) int result;
+@property (nonatomic) NSTimeInterval gameTotalTime;
+@property (nonatomic) NSTimeInterval gameMeanTime;
 
-- (NSString *) timeOutput;
+
+-(NSString*) gameTimeTotals;
+
+
 
 @end

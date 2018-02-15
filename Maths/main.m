@@ -19,9 +19,9 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = YES;
 
         while(true){
-   
+            //  NSLog(@"Test: questions in array: %lu",(unsigned long)[gameQuestionManager.questions count]);
             gameScoreKeeper.totalRounds++;
-            NSLog(@"Begin Round #%d!",gameScoreKeeper.totalRounds);
+            NSLog(@"\n\n\nBegin Round #%d!",gameScoreKeeper.totalRounds);
             AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
             [gameQuestionManager.questions addObject: currentQuestion];
             
@@ -52,7 +52,8 @@ int main(int argc, const char * argv[]) {
                 
             }
             NSLog(@"--You took %.2f seconds to complete this round--\n\n\n",[currentQuestion answerTime]);
-            NSLog([gameScoreKeeper scoreBoard]);
+            NSLog(@"%@",[gameQuestionManager gameTimeTotals]);
+            NSLog(@"%@",[gameScoreKeeper scoreBoard]);
             
        
 

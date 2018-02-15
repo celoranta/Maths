@@ -8,7 +8,11 @@
 
 #import "QuestionManager.h"
 
+
+
 @implementation QuestionManager
+
+
 
 - (instancetype) init{
     self = [super init];
@@ -22,10 +26,17 @@
     return self;
 }
 
-//- (NSString *) timeOutput{
-//    NSString *totalTimeReport = [NSString stringWithFormat:(@"Total time: %.2fs, Average time: %.2fs",5.6, 6.7 )];
-    
-//    return void;
-//}
+- (NSString*) gameTimeTotals{
+
+    int rounds = (int)[self.questions count];
+    self.totalTime =0;
+    for (AdditionQuestion *question in self.questions){
+        [question answerTime];
+        self.totalTime += [question answerTime];
+        self.meanTime = self.totalTime/rounds;
+    }
+        NSString *returnString = [NSString stringWithFormat:@"Total Time: %.0f seconds, Average Time: %.0f seconds.",self.totalTime, self.meanTime];
+        return returnString;
+}
 
 @end

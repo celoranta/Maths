@@ -27,6 +27,7 @@
 
 //overriding getter
 - (NSInteger) correctAnswer{
+    
     self.endTime = [NSDate date];
     NSInteger answer = _correctAnswer;
     return answer;
