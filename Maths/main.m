@@ -7,14 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+//#import "Question.h"
 #import "QuestionManager.h"
 #import "ScoreKeeper.h"
+#import "AdditionQuestion.h"
+#import "SubtractionQuestion.h"
+#import "MultiplicationQuestion.h"
+#import "DivisionQuestion.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         QuestionManager *gameQuestionManager = [[QuestionManager alloc]init];
         ScoreKeeper *gameScoreKeeper = [[ScoreKeeper alloc]init];
+        QuestionFactory *gameQuestionFactory = [[QuestionFactory alloc]init];
+
         
         BOOL gameOn = YES;
 
@@ -22,7 +29,8 @@ int main(int argc, const char * argv[]) {
             //  NSLog(@"Test: questions in array: %lu",(unsigned long)[gameQuestionManager.questions count]);
             gameScoreKeeper.totalRounds++;
             NSLog(@"\n\n\nBegin Round #%d!",gameScoreKeeper.totalRounds);
-            AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
+            
+            Question *currentQuestion = [gameQuestionFactory generateRandomQuestion];
             [gameQuestionManager.questions addObject: currentQuestion];
             
             [currentQuestion queryUser];

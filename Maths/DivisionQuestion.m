@@ -1,14 +1,14 @@
 //
-//  AdditionQuestion.m
+//  DivisionQuestion.m
 //  Maths
 //
 //  Created by Chris Eloranta on 2018-02-14.
 //  Copyright © 2018 Christopher Eloranta. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "DivisionQuestion.h"
 
-@implementation AdditionQuestion
+@implementation DivisionQuestion
 
 - (instancetype)init
 {
@@ -24,15 +24,14 @@
     // grab randomly generated numbers from superclass 'question'
     int localLefthandValue = (int)super.lefthandValue;
     int localRighthandValue = (int)super.righthandValue;
-    super.correctAnswer = localLefthandValue + localRighthandValue;
-    super.question = [NSString stringWithFormat:@"What is %d plus %d",localLefthandValue, localRighthandValue];
+    super.correctAnswer = localLefthandValue / localRighthandValue;
+    super.question = [NSString stringWithFormat:@"What is %d divied by %d",localLefthandValue, localRighthandValue];
     
     //create question and set new question in superclass 'question;
     
     
     
-
+    
     return;
 };
-
 @end

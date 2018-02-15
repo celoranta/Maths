@@ -30,7 +30,7 @@
 
     int rounds = (int)[self.questions count];
     self.totalTime =0;
-    for (AdditionQuestion *question in self.questions){
+    for (Question *question in self.questions){
         [question answerTime];
         self.totalTime += [question answerTime];
         self.meanTime = self.totalTime/rounds;
